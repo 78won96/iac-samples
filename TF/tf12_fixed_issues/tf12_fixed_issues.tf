@@ -8,12 +8,15 @@ provider "aws" {
 
 resource "aws_s3_bucket" "foo" {
   bucket = "my-tf-log-bucket"
-  acl = "private"
+  acl    = "private"
   versioning {
     enabled = true
   }
   logging {
     target_bucket = "logging_bucket"
     target_prefix = "log/"
+  }
+  tags = {
+    yor_trace = "ee1e6097-3c94-4444-a696-9d4a15270256"
   }
 }
